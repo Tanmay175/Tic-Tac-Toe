@@ -17,9 +17,8 @@ const win=[
 board.addEventListener("click",(e)=>{
     if(!e.target.classList.contains("box")) return
     if(e.target.innerText===""){
-        
+        vibrate(60);
         if(turno)  e.target.innerText="O"
-        
         else e.target.innerText="X";
         turno=!turno
         turn.textContent = turno ? "O's Turn" : "X's Turn";
@@ -29,10 +28,11 @@ board.addEventListener("click",(e)=>{
 })
     // winner.textContent=pos1
 function showwinner(pos1,pattern){
-    winner.textContent=`${pos1} is the winner `
+    winner.textContent=`🎉 ${pos1} is the winner 🎉`
     board.style.pointerEvents="none"
     pattern.forEach(num=>{
         boxes[num].style.color="pink"
+        boxes[num].style.backgroundColor = "rgba(255,105,180,0.3)" 
     })
 }
 
@@ -57,9 +57,11 @@ function check(){
 newgame.addEventListener("click",clear)
 reset.addEventListener("click",clear)
 function clear(){
+    vibrate(30)
     boxes.forEach(box=>{
         box.innerText=""
         box.style.color=""
+        box.style.backgroundColor ="" 
     })
     winner.textContent=""
     turno=true
@@ -67,4 +69,6 @@ function clear(){
    turn.textContent="O's Turn"
 }
 
-// turno = !turno;
+function vibrate(ms){
+    if(navigator.vibrate) navigator.vibrate(ms)
+}

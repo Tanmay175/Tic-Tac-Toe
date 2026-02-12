@@ -61,5 +61,7 @@ h1{
     font-size: 15px;
 }
 #turn{
-    background-color: #E67E22;
+    color: #e1d71a;
+    font-size: 40px;
+    font-weight: 900;
 }
