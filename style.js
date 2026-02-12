@@ -44,7 +44,7 @@ function check(){
        let pos3= boxes[pattern[2]].innerText
         
        if(pos1==pos2 && pos2==pos3){
-        if(pos1==="") return
+        if(pos1==="") continue;
         showwinner(pos1,pattern);
        }
     }

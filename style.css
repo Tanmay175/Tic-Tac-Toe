@@ -12,12 +12,14 @@ h1{
     color: #80e179;
     top: 30px;
     margin-bottom: 30px;
+    font-size: clamp(1.8rem, 5vw, 3rem);
 }
 #container{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    padding: 20px;
 }
 #parent{
     position: relative;
@@ -28,26 +30,27 @@ h1{
     gap: 20px;
 }
 #board{
-    height: 400px;
-    width: 400px;
+    aspect-ratio: 1/1;
+    width: min(90vw,400px);
     gap: 1px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+     grid-template-rows: 1fr 1fr 1fr;
     /* margin-bottom: 0px; */
 }
 .box{
     background-color: #628141;
     border-radius: 10px;
-    height: 120px;
-    width: 120px;
-    font-size: 50px;
+    height: 100%;
+    width: 100%;
+     font-size: clamp(2rem, 8vw, 3.5rem);
 }
 #winner{
     /* background-color: aqua; */
     color: #E67E22;
     height: 50px;
     width: 100vw;
-    font-size: 40px;
+      font-size: clamp(1.5rem, 4vw, 2.5rem);
     font-weight: bolder;
     text-align: center;
     margin-bottom: 10px;
@@ -64,4 +67,15 @@ h1{
     color: #e1d71a;
     font-size: 40px;
     font-weight: 900;
+}
+
+@media (max-width: 480px){
+    #parent{
+        gap: 10px;
+    }
+
+    #winner{
+        height: auto;
+        margin-bottom: 5px;
+    }
 }
